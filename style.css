@@ -93,6 +93,7 @@ button#reset:active {
     padding: 20px 0;
     font-size: 50px;
     text-align: center;
+    color: rgb(152, 163, 216);
 }
 
 .game {

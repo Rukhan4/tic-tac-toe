@@ -10,8 +10,9 @@ const Player = (sign, playerOne, playerTwo) => {
         form.style.display = "none";
         playerOne = document.getElementById("playerx").value;
         playerTwo = document.getElementById("playero").value;
-        playerOneName.textContent = `${playerOne}'s Score`;
-        playerTwoName.textContent = `${playerTwo}'s Score`;
+        playerOneName.textContent = `${playerOne}'s Score (X)`;
+        playerTwoName.textContent = `${playerTwo}'s Score (O)`;
+        document.getElementById("message").style.color = "black";
     });
     this.playerOne = playerOne;
     this.sign = sign;
