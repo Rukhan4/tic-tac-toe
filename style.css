@@ -76,7 +76,7 @@ button#reset:active {
 #player-2-score {
     position: relative;
     top: -200px;
-    font-size: 2em;
+    font-size: 3em;
 }
 
 .gameboard {
