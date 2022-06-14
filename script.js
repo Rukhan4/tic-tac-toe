@@ -1,6 +1,3 @@
-// Form control //
-
-const start = document.getElementById('start');
 // Factory for multiple Players //
 
 const Player = (sign, playerOne, playerTwo) => {
@@ -11,12 +8,12 @@ const Player = (sign, playerOne, playerTwo) => {
 
     start.addEventListener("click", () => {
         form.style.display = "none";
-        const player1 = document.getElementById("playerx").value;
-        const player2 = document.getElementById("playero").value;
-        playerOneName.innerHTML = player1;
-        playerTwoName.innerHTML = player2;
+        playerOne = document.getElementById("playerx").value;
+        playerTwo = document.getElementById("playero").value;
+        playerOneName.textContent = `${playerOne}'s Score`;
+        playerTwoName.textContent = `${playerTwo}'s Score`;
     });
-
+    this.playerOne = playerOne;
     this.sign = sign;
 
     const getSign = () => {
@@ -59,9 +56,6 @@ const displayController = (() => {
     const playerOneElement = document.getElementById("player-1-score");
     const playerTwoElement = document.getElementById("player-2-score");
     const playerTwoName = document.getElementById("player-2");
-
-    playerOneElement.textContent = 0;
-    playerTwoElement.textContent = 0;
 
     // Reset entire webpage //
     resetElement.addEventListener("click", reloadPage);
