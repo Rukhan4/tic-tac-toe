@@ -1,14 +1,26 @@
+// Form control //
+
+const start = document.getElementById('start');
 // Factory for multiple Players //
 
-const Player = (sign) => {
+const Player = (sign, playerOne, playerTwo) => {
+    const playerOneName = document.getElementById("player-1");
+    const playerTwoName = document.getElementById("player-2");
+    const start = document.getElementById('start');
+    const form = document.querySelector('.formholder');
+
+    start.addEventListener("click", () => {
+        form.style.display = "none";
+        const player1 = document.getElementById("playerx").value;
+        const player2 = document.getElementById("playero").value;
+        playerOneName.innerHTML = player1;
+        playerTwoName.innerHTML = player2;
+    });
+
     this.sign = sign;
 
     const getSign = () => {
         return sign;
-    };
-
-    const KeepScore = (score) => {
-        this.score++;
     };
 
     return { getSign };
@@ -46,6 +58,7 @@ const displayController = (() => {
     const resetElement = document.getElementById('reset');
     const playerOneElement = document.getElementById("player-1-score");
     const playerTwoElement = document.getElementById("player-2-score");
+    const playerTwoName = document.getElementById("player-2");
 
     playerOneElement.textContent = 0;
     playerTwoElement.textContent = 0;
