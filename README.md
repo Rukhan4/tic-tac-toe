@@ -47,4 +47,4 @@ Click the ``fork`` button in this repository. This allows the user to create a r
 ```git push -u fork master```
 
 ## Live
-![Live image](showcase.PNG)
+![Live image](ex.PNG)
