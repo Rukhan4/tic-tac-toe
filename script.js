@@ -96,5 +96,22 @@ const gameController = (() => {
         return round % 2 === 1 ? playerX.getSign() : playerO.getSign();
     };
 
+    // Play one round and check if winner //
+    const playRound = (fieldIndex) => {
+        gameBoard.setField(fieldIndex, getCurrentPlayerSign());
+        if (checkWin(fieldIndex)) {
+            displayController.SetResultMessage(getCurrentPlayerSign());
+            gameOff = true;
+            return;
+        };
+        if (round === 9) {
+            displayController.SetResultMessage("Draw");
+            gameOn = false;
+            return;
+        };
+        round++;
+        displayController.SetResultMessage(`Player ${getCurrentPlayerSign()}'s Turn`);
+    };
+
 
 })();
