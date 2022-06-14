@@ -64,6 +64,7 @@ const displayController = (() => {
         };
     };
 
+    // Update field on click //
     fieldElements.forEach((field) =>
         field.addEventListener("click", (e) => {
             if (gameController.gameOver() || e.target.textContent !== "") return;
@@ -84,3 +85,10 @@ const displayController = (() => {
 })();
 
 
+const gameController = (() => {
+    const playerX = Player("X");
+    const playerO = Player("O");
+    var round = 1;
+    var gameOff = false;
+
+})();
