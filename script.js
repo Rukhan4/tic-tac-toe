@@ -61,8 +61,16 @@ const displayController = (() => {
     const updateGameboard = () => {
         for (let i = 0; i < fieldElements.length; i++) {
             fieldElements[i].textContent = gameBoard.getField(i);
-        }
+        };
     };
+
+    fieldElements.forEach((field) =>
+        field.addEventListener("click", (e) => {
+            if (gameController.gameOver() || e.target.textContent !== "") return;
+            gameController.playRound(parseInt(e.target.dataset.index));
+            updateGameboard();
+        })
+    );
 
     // Rematch after round played //
     rematchButton.addEventListener("click", (e) => {
