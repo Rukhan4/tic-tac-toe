@@ -105,6 +105,7 @@ const displayController = (() => {
         gameController.reset();
         updateGameboard();
         setMessageElement("Player X's turn");
+        document.getElementById("rematch").style.display = "none";
     });
     return { setResultMessage, setMessageElement };
 })();
@@ -126,12 +127,13 @@ const gameController = (() => {
         gameBoard.setField(fieldIndex, getCurrentPlayerSign());
         if (checkWinner(fieldIndex)) {
             displayController.setResultMessage(getCurrentPlayerSign());
+            document.getElementById("rematch").style.display = "block";
             gameOff = true;
             return;
         };
         if (round === 9) {
             displayController.setResultMessage("Draw");
-            gameOn = false;
+            gameOff = false;
             return;
         };
         round++;
