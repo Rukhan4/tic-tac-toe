@@ -42,7 +42,7 @@ button#reset:active {
 
 /* Main board */
 
-.message {
+#message {
     padding: 20px 0;
     font-size: 50px;
     text-align: center;
