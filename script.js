@@ -113,5 +113,26 @@ const gameController = (() => {
         displayController.SetResultMessage(`Player ${getCurrentPlayerSign()}'s Turn`);
     };
 
+    // Algorithm for checking if winner //
+    const checkWinner = (fieldIndex) => {
+        const winConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+        return winConditions
+            .filter((combination) => combination.includes(fieldIndex))
+            .some((possibleCombination) =>
+                possibleCombination.every(
+                    (index) => gameBoard.getField(index) ===
+                        getCurrentPlayerSign())
+            );
+    };
+
 
 })();
