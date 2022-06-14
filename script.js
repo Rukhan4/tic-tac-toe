@@ -10,16 +10,10 @@ const Player = (sign) => {
     return { getSign };
 };
 
-// Module for game //
+// Module for gameboard controls //
 
 const gameBoard = (() => {
     const board = ["", "", "", "", "", "", "", "", ""];
-
-    const reset = () => {
-        for (let i = 0; i < board.length; i++) {
-            board[i] = "";
-        }
-    };
 
     const setField = (index, sign) => {
         if (index > board.length) return;
@@ -31,5 +25,33 @@ const gameBoard = (() => {
         return board[index];
     };
 
-    return { setField, getField, reset };
+    return { setField, getField };
 })();
+
+// Module for game display control //
+
+const displayController = (() => {
+    const fieldElements = document.querySelectorAll(".field");
+    const messageElement = document.querySelector(".message");
+    const rematchElement = document.querySelector(".rematch");
+    const resetElement = document.getElementById('reset');
+
+    // Reset entire webpage //
+    resetElement.addEventListener("click", reloadPage);
+
+    function reloadPage() {
+        location.reload();
+    };
+
+    // Display winner result //
+    const SetResultMessage = (winner) => {
+        if (winner === "Draw") {
+            messageElement.textContent = "Draw!";
+        } else {
+            messageElement.textContent = `${winner} has won!`;
+        };
+    };
+
+    return {};
+})();
+
