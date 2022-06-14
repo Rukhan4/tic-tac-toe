@@ -91,4 +91,10 @@ const gameController = (() => {
     var round = 1;
     var gameOff = false;
 
+    // Gets current player sign //
+    const getCurrentPlayerSign = () => {
+        return round % 2 === 1 ? playerX.getSign() : playerO.getSign();
+    };
+
+
 })();
