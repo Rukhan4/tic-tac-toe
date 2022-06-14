@@ -7,6 +7,10 @@ const Player = (sign) => {
         return sign;
     };
 
+    const KeepScore = (score) => {
+        this.score++;
+    };
+
     return { getSign };
 };
 
@@ -40,6 +44,11 @@ const displayController = (() => {
     const messageElement = document.getElementById("message");
     const rematchButton = document.getElementById("rematch");
     const resetElement = document.getElementById('reset');
+    const playerOneElement = document.getElementById("player-1-score");
+    const playerTwoElement = document.getElementById("player-2-score");
+
+    playerOneElement.textContent = 0;
+    playerTwoElement.textContent = 0;
 
     // Reset entire webpage //
     resetElement.addEventListener("click", reloadPage);
@@ -59,6 +68,11 @@ const displayController = (() => {
             setMessageElement("It's a draw!");
         } else {
             setMessageElement(`Player ${winner} has won!`);
+            if (winner === "X") {
+                playerOneElement.textContent++;
+            } else {
+                playerTwoElement.textContent++;
+            };
         };
     };
 
