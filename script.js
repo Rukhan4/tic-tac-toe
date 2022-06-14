@@ -28,8 +28,8 @@ const gameBoard = (() => {
     const rematch = () => {
         for (let i = 0; i < board.length; i++) {
             board[i] = "";
-        }
-    }
+        };
+    };
     return { setField, getField, rematch };
 })();
 
@@ -37,7 +37,7 @@ const gameBoard = (() => {
 
 const displayController = (() => {
     const fieldElements = document.querySelectorAll(".field");
-    const messageElement = document.querySelector(".message");
+    const messageElement = document.getElementById("message");
     const rematchButton = document.getElementById("rematch");
     const resetElement = document.getElementById('reset');
 
@@ -48,12 +48,17 @@ const displayController = (() => {
         location.reload();
     };
 
+    // Manage textContent //
+    const setMessageElement = (message) => {
+        messageElement.textContent = message;
+    };
+
     // Display player result //
-    const SetResultMessage = (res) => {
-        if (res === "Draw") {
-            messageElement.textContent = "Draw!";
+    const setResultMessage = (winner) => {
+        if (winner === "Draw") {
+            setMessageElement("It's a draw!");
         } else {
-            messageElement.textContent = `${res} has won!`;
+            setMessageElement(`Player ${winner} has won!`);
         };
     };
 
@@ -75,13 +80,12 @@ const displayController = (() => {
 
     // Rematch after round played //
     rematchButton.addEventListener("click", (e) => {
-        e.preventDefault();
         gameBoard.rematch();
+        gameController.reset();
         updateGameboard();
-        messageElement.textContent = "Player X Turn";
-
-        return { SetResultMessage };
+        setMessageElement("Player X's turn");
     });
+    return { setResultMessage, setMessageElement };
 })();
 
 
@@ -99,18 +103,18 @@ const gameController = (() => {
     // Play one round and check if winner //
     const playRound = (fieldIndex) => {
         gameBoard.setField(fieldIndex, getCurrentPlayerSign());
-        if (checkWin(fieldIndex)) {
-            displayController.SetResultMessage(getCurrentPlayerSign());
+        if (checkWinner(fieldIndex)) {
+            displayController.setResultMessage(getCurrentPlayerSign());
             gameOff = true;
             return;
         };
         if (round === 9) {
-            displayController.SetResultMessage("Draw");
+            displayController.setResultMessage("Draw");
             gameOn = false;
             return;
         };
         round++;
-        displayController.SetResultMessage(`Player ${getCurrentPlayerSign()}'s Turn`);
+        displayController.setMessageElement(`Player ${getCurrentPlayerSign()}'s Turn`);
     };
 
     // Algorithm for checking if winner //
@@ -134,5 +138,16 @@ const gameController = (() => {
             );
     };
 
+    // Check if game is over //
+    const gameOver = () => {
+        return gameOff;
+    };
 
+    // Soft reset //
+    const reset = () => {
+        round = 1
+        gameOff = false
+    };
+
+    return { playRound, gameOver, reset };
 })();
