@@ -5,13 +5,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 231, 235);
+    background-color: rgb(152, 163, 216);
     font-family: 'Kdam Thmor Pro', sans-serif;
     margin: 0;
 }
 
 header {
-    background-color: rgb(250, 190, 99);
+    background-color: rgb(43, 59, 100);
     width: 100%;
     text-align: center;
     margin-bottom: auto;
@@ -30,7 +30,7 @@ h1 {
     width: 100px;
     position: relative;
     top: -30px;
-    background-color: rgb(255, 231, 235);
+    background-color: rgb(152, 163, 216);
     font-size: 30px;
     font-weight: bold;
 }
