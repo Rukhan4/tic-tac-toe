@@ -27,7 +27,7 @@ h1 {
 #reset {
     border-radius: 15px;
     height: 50px;
-    width: 100px;
+    width: auto;
     position: relative;
     top: -30px;
     background-color: rgb(152, 163, 216);
@@ -35,7 +35,82 @@ h1 {
     font-weight: bold;
 }
 
-button:active {
+button#reset:active {
     transform: translateY(4px);
     box-shadow: 0 5px #666;
+}
+
+/* Main board */
+
+.message {
+    padding: 20px 0;
+    font-size: 50px;
+    text-align: center;
+}
+
+.game {
+    display: flex;
+    margin-top: 40px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.player {
+    position: relative;
+    top: -300px;
+    font-size: 3em;
+    margin: 100px;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-1-score,
+#player-2-score {
+    position: relative;
+    top: -200px;
+    font-size: 2em;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 454px;
+    height: 454px;
+    border: 2px solid black;
+    margin: 0px auto;
+}
+
+.field {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    background-color: inherit;
+    font-size: 100px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.field:hover {
+    background-color: rgb(101, 110, 156);
+}
+
+#rematch {
+    position: inherit;
+    border-radius: 15px;
+    height: 50px;
+    width: auto;
+    position: relative;
+    top: 10px;
+    background-color: rgb(43, 59, 100);
+    font-size: 30px;
+    font-weight: bold;
 }
