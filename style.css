@@ -42,6 +42,53 @@ button#reset:active {
 
 /* Main board */
 
+.formholder {
+    display: flex;
+    z-index: 1001;
+    position: absolute;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgb(43, 59, 100);
+    width: 459px;
+    height: 575px;
+    top: 350px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formLabel {
+    font-size: 3em;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-top: auto;
+    display: flex;
+}
+
+.formInput {
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    border: 2px solid black;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    background-color: rgb(152, 163, 216);
+}
+
+#start {
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: rgb(152, 163, 216);
+    font-size: 30px;
+    font-weight: bold;
+    width: auto;
+    margin-top: 50px;
+}
+
 #message {
     padding: 20px 0;
     font-size: 50px;
