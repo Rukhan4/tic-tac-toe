@@ -74,6 +74,7 @@ const displayController = (() => {
     const setResultMessage = (winner) => {
         if (winner === "Draw") {
             setMessageElement("It's a draw!");
+            document.getElementById("rematch").style.display = "block";
         } else {
             setMessageElement(`Player ${winner} has won!`);
             if (winner === "X") {
@@ -134,6 +135,7 @@ const gameController = (() => {
         };
         if (round === 9) {
             displayController.setResultMessage("Draw");
+            document.getElementById("rematch").style.display = "block";
             gameOff = false;
             return;
         };
